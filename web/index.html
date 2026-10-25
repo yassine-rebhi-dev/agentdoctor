@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>readyrepo: can an AI agent work in your repo?</title>
+    <meta name="description" content="Paste a GitHub repo and get a 0-100 score for how well Claude Code, Codex and Cursor can work in it, with the exact fixes." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <header class="intro">
+        <h1>Can an AI agent work in your repo?</h1>
+        <p class="lede">
+          readyrepo checks the 12 things Claude Code, Codex and Cursor rely on (instructions, test command, types, lockfile, CI…) and tells
+          you exactly what to fix. Runs in your browser; nothing is uploaded.
+        </p>
+      </header>
+
+      <form id="form" class="scan" autocomplete="off">
+        <label for="target" class="visually-hidden">GitHub repository</label>
+        <input id="target" name="target" type="text" inputmode="url" spellcheck="false" placeholder="owner/repo or a GitHub URL" required />
+        <button id="go" type="submit">Score repo</button>
+      </form>
+      <p class="examples">
+        Try:
+        <button type="button" class="example" data-repo="astral-sh/uv">astral-sh/uv</button>
+        <button type="button" class="example" data-repo="vercel/next.js">vercel/next.js</button>
+        <button type="button" class="example" data-repo="openai/codex">openai/codex</button>
+        <button type="button" class="example" data-repo="facebook/react">facebook/react</button>
+      </p>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+
+      <section id="result" class="result" hidden aria-labelledby="result-title">
+        <div class="summary">
+          <svg id="ring" class="ring" viewBox="0 0 120 120" aria-hidden="true"></svg>
+          <div class="score-text">
+            <p id="result-title" class="repo-name"></p>
+            <p class="score"><span id="score">0</span><span class="of">/100</span></p>
+            <p id="grade" class="grade"></p>
+          </div>
+        </div>
+        <p id="kind-note" class="kind-note" hidden></p>
+        <ol id="checks" class="checks"></ol>
+        <div class="share">
+          <h2>Show it in your README</h2>
+          <img id="badge" alt="" />
+          <pre><code id="badge-md"></code></pre>
+          <button type="button" id="copy-badge" class="quiet">Copy Markdown</button>
+        </div>
+      </section>
+
+      <section class="use">
+        <h2>Run it on your machine or in CI</h2>
+        <p>Scores the files git would commit, including private repos, with no token.</p>
+        <pre><code>npx readyrepo</code></pre>
+        <p>Fail a pull request when readiness drops:</p>
+        <pre><code>npx readyrepo --min-score 70 --md >> "$GITHUB_STEP_SUMMARY"</code></pre>
+      </section>
+
+      <footer>
+        <a href="https://github.com/yassine-rebhi-dev/readyrepo">Source on GitHub</a>
+        <a href="https://github.com/yassine-rebhi-dev/readyrepo/blob/main/docs/checks.md">How the score works</a>
+        <span>MIT licensed</span>
+      </footer>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

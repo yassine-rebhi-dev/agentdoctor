@@ -1,0 +1,54 @@
+{
+  "name": "readyrepo",
+  "version": "0.1.0",
+  "description": "Score how well AI coding agents (Claude Code, Codex, Cursor) can work in your repo, 0-100, with exact fixes.",
+  "type": "module",
+  "bin": {
+    "readyrepo": "dist/src/bin.js"
+  },
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist/src"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "web:dev": "vite web",
+    "web:build": "vite build web --outDir ../dist-web --emptyOutDir --base ./",
+    "leaderboard": "node dist/scripts/leaderboard.js",
+    "prepublishOnly": "npm run typecheck && npm run lint && npm test && npm run build",
+    "lint": "biome lint src test scripts web",
+    "format": "biome format --write src test scripts web",
+    "demo:gif": "vhs scripts/demo.tape"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "claude-code",
+    "codex",
+    "cursor",
+    "agents-md",
+    "claude-md",
+    "developer-tools",
+    "cli",
+    "lint"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yassine-rebhi-dev/readyrepo.git"
+  },
+  "homepage": "https://yassine-rebhi-dev.github.io/readyrepo/"
+}
