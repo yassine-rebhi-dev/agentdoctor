@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>readyrepo: can an AI agent work in your repo?</title>
+    <title>agentdoctor: can an AI agent work in your repo?</title>
     <meta name="description" content="Paste a GitHub repo and get a 0-100 score for how well Claude Code, Codex and Cursor can work in it, with the exact fixes." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,7 +18,7 @@
       <header class="intro">
         <h1>Can an AI agent work in your repo?</h1>
         <p class="lede">
-          readyrepo checks the 12 things Claude Code, Codex and Cursor rely on (instructions, test command, types, lockfile, CI…) and tells
+          agentdoctor checks the 12 things Claude Code, Codex and Cursor rely on (instructions, test command, types, lockfile, CI…) and tells
           you exactly what to fix. Runs in your browser; nothing is uploaded.
         </p>
       </header>
@@ -60,14 +60,14 @@
       <section class="use">
         <h2>Run it on your machine or in CI</h2>
         <p>Scores the files git would commit, including private repos, with no token.</p>
-        <pre><code>npx readyrepo</code></pre>
+        <pre><code>npx agentdoctor</code></pre>
         <p>Fail a pull request when readiness drops:</p>
-        <pre><code>npx readyrepo --min-score 70 --md >> "$GITHUB_STEP_SUMMARY"</code></pre>
+        <pre><code>npx agentdoctor --min-score 70 --md >> "$GITHUB_STEP_SUMMARY"</code></pre>
       </section>
 
       <footer>
-        <a href="https://github.com/yassine-rebhi-dev/readyrepo">Source on GitHub</a>
-        <a href="https://github.com/yassine-rebhi-dev/readyrepo/blob/main/docs/checks.md">How the score works</a>
+        <a href="https://github.com/yassine-rebhi-dev/agentdoctor">Source on GitHub</a>
+        <a href="https://github.com/yassine-rebhi-dev/agentdoctor/blob/main/docs/checks.md">How the score works</a>
         <span>MIT licensed</span>
       </footer>
     </main>

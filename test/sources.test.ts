@@ -49,7 +49,7 @@ describe("GitHubSource", () => {
 
 describe("LocalSource", () => {
   it("uses git's view of the repo, so ignored files (like a local .env) don't count", async () => {
-    const dir = mkdtempSync(join(tmpdir(), "readyrepo-"));
+    const dir = mkdtempSync(join(tmpdir(), "agentdoctor-"));
     writeFileSync(join(dir, "AGENTS.md"), "npm test");
     writeFileSync(join(dir, ".gitignore"), ".env\n");
     writeFileSync(join(dir, ".env"), "SECRET=1");
@@ -62,7 +62,7 @@ describe("LocalSource", () => {
     expect(await new LocalSource(dir).read("AGENTS.md")).toBe("npm test");
   });
   it("falls back to walking the directory outside git, skipping node_modules", async () => {
-    const dir = mkdtempSync(join(tmpdir(), "readyrepo-"));
+    const dir = mkdtempSync(join(tmpdir(), "agentdoctor-"));
     writeFileSync(join(dir, "README.md"), "# x");
     mkdirSync(join(dir, "node_modules"));
     writeFileSync(join(dir, "node_modules", "junk.js"), "");
@@ -70,7 +70,7 @@ describe("LocalSource", () => {
     expect(paths).toEqual(["README.md"]);
   });
   it("refuses to read outside the repo", async () => {
-    const dir = mkdtempSync(join(tmpdir(), "readyrepo-"));
+    const dir = mkdtempSync(join(tmpdir(), "agentdoctor-"));
     expect(await new LocalSource(dir).read("../../etc/passwd")).toBeNull();
   });
 });

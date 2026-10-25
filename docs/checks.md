@@ -1,6 +1,6 @@
 # How the score works
 
-readyrepo reads the file tree and a handful of files. It never clones, installs or runs anything, so a scan takes
+agentdoctor reads the file tree and a handful of files. It never clones, installs or runs anything, so a scan takes
 seconds and is safe on any public repo. Twelve checks add up to 100 points. Each result shows the evidence it
 found and, when it doesn't pass, the exact fix.
 
@@ -26,7 +26,7 @@ They are a judgment call. If you think one is wrong, open an issue with a counte
 Monorepos: manifests (`Cargo.toml`, `go.mod`, `tsconfig.json`, lockfiles) are found up to two folders deep.
 Tests, fixtures, examples and benchmarks are excluded from the size and `.env` checks.
 
-## What readyrepo does not measure (yet)
+## What agentdoctor does not measure (yet)
 - Whether the test suite actually passes or how long it takes (that needs running code).
 - The quality of the instructions, beyond containing commands and being a sane size.
 - Language-specific conventions beyond the markers above. PRs welcome; see CONTRIBUTING.md.

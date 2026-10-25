@@ -1,6 +1,6 @@
 # AGENTS.md
 
-readyrepo scores how well AI coding agents can work in a repository. TypeScript, Node >= 20, zero runtime dependencies.
+agentdoctor scores how well AI coding agents can work in a repository. TypeScript, Node >= 20, zero runtime dependencies.
 
 ## Commands
 

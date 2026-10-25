@@ -6,15 +6,15 @@ import { LocalSource } from "./sources/local.js";
 import { badgeSvg, markdown, terminal } from "./report/render.js";
 import type { RepoSource } from "./types.js";
 
-const HELP = `readyrepo: how well can AI coding agents work in this repo?
+const HELP = `agentdoctor: how well can AI coding agents work in this repo?
 
 Usage
-  npx readyrepo [path | owner/repo | github-url] [options]
+  npx agentdoctor [path | owner/repo | github-url] [options]
 
 Options
   --json             print the full report as JSON
   --md               print a Markdown table (for PR comments / job summaries)
-  --badge <file>     write an SVG badge (e.g. .github/readyrepo.svg)
+  --badge <file>     write an SVG badge (e.g. .github/agentdoctor.svg)
   --min-score <n>    exit 1 if the score is below n (CI gate)
   -h, --help         show this help
   -v, --version      show version
@@ -75,7 +75,7 @@ export async function main(argv: string[]): Promise<number> {
   else console.log(terminal(report));
   if (args.badge) writeFileSync(args.badge, badgeSvg(report));
   if (args.minScore !== undefined && report.score < args.minScore) {
-    console.error(`readyrepo: score ${report.score} is below --min-score ${args.minScore}`);
+    console.error(`agentdoctor: score ${report.score} is below --min-score ${args.minScore}`);
     return 1;
   }
   return 0;

@@ -1,10 +1,10 @@
 {
-  "name": "readyrepo",
+  "name": "agentdoctor",
   "version": "0.1.0",
-  "description": "Score how well AI coding agents (Claude Code, Codex, Cursor) can work in your repo, 0-100, with exact fixes.",
+  "description": "Checks whether AI coding agents (Claude Code, Codex, Cursor) can work in your repo, 0-100, with the exact fixes.",
   "type": "module",
   "bin": {
-    "readyrepo": "dist/src/bin.js"
+    "agentdoctor": "dist/src/bin.js"
   },
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -36,7 +36,8 @@
     "claude-md",
     "developer-tools",
     "cli",
-    "lint"
+    "lint",
+    "doctor"
   ],
   "license": "MIT",
   "devDependencies": {
@@ -48,7 +49,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yassine-rebhi-dev/readyrepo.git"
+    "url": "git+https://github.com/yassine-rebhi-dev/agentdoctor.git"
   },
-  "homepage": "https://yassine-rebhi-dev.github.io/readyrepo/"
+  "homepage": "https://yassine-rebhi-dev.github.io/agentdoctor/"
 }

@@ -4,7 +4,7 @@ import { main } from "./cli.js";
 main(process.argv.slice(2)).then(
   (code) => process.exit(code),
   (e: Error) => {
-    console.error(`readyrepo: ${e.message}`);
+    console.error(`agentdoctor: ${e.message}`);
     process.exit(2);
   },
 );

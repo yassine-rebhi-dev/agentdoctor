@@ -31,7 +31,7 @@ describe("sourceFor", () => {
 
 describe("main", () => {
   const repo = () => {
-    const dir = mkdtempSync(join(tmpdir(), "readyrepo-cli-"));
+    const dir = mkdtempSync(join(tmpdir(), "agentdoctor-cli-"));
     writeFileSync(join(dir, "README.md"), "# x");
     return dir;
   };

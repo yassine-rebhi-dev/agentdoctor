@@ -28,7 +28,7 @@ export function badgeSvg(r: Pick<Report, "score">): string {
 
 export function markdown(r: Report): string {
   const rows = r.results.map((c) => `| ${ICON[c.status]} | ${c.title} | ${c.points}/${c.maxPoints} | ${c.status === "pass" ? c.evidence[0] ?? "" : c.fix ?? ""} |`);
-  return [`## readyrepo: **${r.score}/100** (${r.grade}) for \`${r.repo}\``, "", ...(r.kind === "content" ? [`> ${CONTENT_NOTE}`, ""] : []), "| | Check | Points | Evidence / fix |", "|---|---|---|---|", ...rows].join("\n");
+  return [`## agentdoctor: **${r.score}/100** (${r.grade}) for \`${r.repo}\``, "", ...(r.kind === "content" ? [`> ${CONTENT_NOTE}`, ""] : []), "| | Check | Points | Evidence / fix |", "|---|---|---|---|", ...rows].join("\n");
 }
 
 const useColor = () => typeof process !== "undefined" && process.stdout?.isTTY && !process.env.NO_COLOR;
@@ -42,7 +42,7 @@ function bar(score: number, width = 30): string {
 }
 
 export function terminal(r: Report): string {
-  const lines = ["", `  ${c("1", "readyrepo")}  ${r.repo}`, "", `  ${bar(r.score)}  ${c("1", `${r.score}/100`)}  grade ${c("1", r.grade)}`, ""];
+  const lines = ["", `  ${c("1", "agentdoctor")}  ${r.repo}`, "", `  ${bar(r.score)}  ${c("1", `${r.score}/100`)}  grade ${c("1", r.grade)}`, ""];
   if (r.kind === "content") lines.push(`  ${c("2", CONTENT_NOTE)}`, "");
   const order = (x: CheckResult) => ({ fail: 0, partial: 1, pass: 2 })[x.status];
   for (const x of [...r.results].sort((a, b) => order(a) - order(b) || b.maxPoints - a.maxPoints)) {

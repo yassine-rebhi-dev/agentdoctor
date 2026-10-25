@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping. readyrepo is small on purpose: zero runtime dependencies, every check explainable in one paragraph.
+Thanks for helping. agentdoctor is small on purpose: zero runtime dependencies, every check explainable in one paragraph.
 
 ## Setup
 
